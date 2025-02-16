@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fermuda's experience</title>
+    <link rel="stylesheet" href="standard.css">
+    <link rel="stylesheet" href="assets/sheets/projects.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" sizes="25x25" href="assets/images/favicon.png">
+    <script>
+        function NewElement(Title, Timeline, Image, Stickers, Description, SampleLink){
+            /* FOR STICKERS: FIRST VALUE IS IMAGE LINK AND SECOND VALUE IS WEBSITE LINK. */
+            var SampleDiv = document.createElement("div")
+            var ElementDiv = document.createElement("div")
+            var StickerDiv = document.createElement("div")
+            var DividerDiv1 = document.createElement("div")
+            var DividerDiv2 = document.createElement("div")
+    
+            var TitleP = document.createElement("p")
+            var SampleP = document.createElement("p")
+            var TimelineP = document.createElement("p")
+            var DescriptionP = document.createElement("p")
+    
+            var SampleA = document.createElement("a")
+            var NewImg = document.createElement("img")
+
+            NewImg.classList.add("element-image")
+            NewImg.src = Image
+    
+            StickerDiv.classList.add("stickers")
+            ElementDiv.classList.add("element-template")
+            DividerDiv1.classList.add("element-divider")
+            DividerDiv2.classList.add("element-divider")
+    
+            DividerDiv1.style = "transform: translate(5%, -40px);"
+            DividerDiv2.style = "transform: translate(5%, 65px);"
+    
+            TitleP.classList.add("element-title")
+            TimelineP.classList.add("element-timeline")
+            DescriptionP.classList.add("element-description")
+    
+            TitleP.innerHTML = Title
+            TimelineP.innerHTML = Timeline
+            DescriptionP.innerHTML = Description
+    
+            SampleDiv.classList.add("sample-button")
+            SampleDiv.style = "background-color: greenyellow"
+    
+            SampleP.classList.add("sample-button-text")
+            SampleP.textContent = "MY WORK"
+            SampleP.style = "transform: translate(0, 20%)"
+
+            for (let Sticker of Stickers) {
+                var StickerA = document.createElement("a")
+                var StickerImg = document.createElement("img")
+                StickerImg.classList.add("sticker-button")
+                StickerImg.src = Sticker[0]
+                StickerA.href = Sticker[1]
+                StickerDiv.appendChild(StickerA)
+                StickerA.appendChild(StickerImg)
+            }
+    
+            ElementDiv.appendChild(NewImg)
+            ElementDiv.appendChild(TitleP)
+            ElementDiv.appendChild(DividerDiv1)
+            ElementDiv.appendChild(DividerDiv2)
+            ElementDiv.appendChild(TimelineP)
+            ElementDiv.appendChild(DescriptionP)
+            ElementDiv.appendChild(StickerDiv)
+            ElementDiv.appendChild(SampleA)
+            SampleA.appendChild(SampleDiv)
+            SampleDiv.appendChild(SampleP)
+
+            ElementDiv.addEventListener("mouseover", function(){
+                NewImg.style = "width: 110%;"
+            })
+
+            ElementDiv.addEventListener("mouseout", function(){
+                NewImg.style = "width: 100%;"
+            })
+
+            SampleA.href = SampleLink
+
+            document.getElementById("file-body").querySelector("#element-grid").appendChild(ElementDiv)
+        }
+    
+        function CreateElements(){
+            /* TO PREVENT THE NEW ELEMENT FUNCTION FROM BEING CALLED TOO EARLY, CALL THIS FUNCTION WHEN THE WINDOW LOADS FULLY */
+            NewElement("LUA", 
+            "August, 2017",
+            "assets/images/previews/lua-moon.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `I started LUA during the mid-Summer of 2017. Since then, I've developed many functional and optimized projects. I utilize many self-made libraries to create the best
+            possible product.`,
+            "projects.html")
+
+            NewElement("Python", 
+            "April, 2018",
+            "assets/images/previews/python-lake.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `I began developing in Python during the early-Spring of 2018. Python has allowed me to look at development in a different light. Python taught me how to utilize self-made libraries.`,
+            "projects.html")
+
+            NewElement("HTML", 
+            "June, 2018",
+            "assets/images/previews/html-desert.jpg",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `I started studying web-development in the early-Summer of 2018. After a while, I was able to practice all of HTML's tags. This website showcases my acquired skill in HTML.`,
+            "projects.html")
+
+            NewElement("CSS", 
+            "June, 2018",
+            "assets/images/previews/css-tundra.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `As I learned HTML, I practiced CSS. After acquiring profiency in HTML, I began to put all my effort into learning CSS. This website showcases the skill I've garnered in CSS.`,
+            "projects.html")
+
+            NewElement("Java", 
+            "July, 2018",
+            "assets/images/previews/java-jungle.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `I took an ephemeral interest in Object Oriented Programming around the time I started web development. Despite not focusing much on Java, I've created many advanced programs.`,
+            "projects.html")
+
+            NewElement("JavaScript", 
+            "August, 2018",
+            "assets/images/previews/javascript-mesa.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `After gathering a decent amount of knowledge regarding HTML and CSS, I decided to learn JavaScript. Using JavaScript, I've made already nifty webpages more snazzy.`,
+            "projects.html")
+
+            NewElement("C", 
+            "March, 2019",
+            "assets/images/previews/c-lake.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `I started C during the early-Spring of 2019. Using C, I've made a multitude of windows applications. Utilizing what I've created previously, I develop 
+            efficient applications.`,
+            "projects.html")
+
+            NewElement("C++", 
+            "November, 2019",
+            "assets/images/previews/cpp-alpine-forest.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `After learning C, I took interest in C++. Using what I knew from C, gathering an adequate understanding wasn't too difficult. I've made many impressive applications, I prefer C, however.`,
+            "projects.html")
+
+            NewElement("x86 NASM", 
+            "March, 2020",
+            "assets/images/previews/nasm-swamp.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `At the pandemic's beginning, I decided to learn x86 Assembly, NASM in particular. I always found Operating Systems to be interesting. I never made much, though.`,
+            "projects.html")
+
+            NewElement("Rust", 
+            "April, 2021",
+            "assets/images/previews/rust-beach.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `I decided to experiment with Rust following constant pestering from the people around me. In the end, I developed a decent understanding of Rust and made many utility programs.`,
+            "projects.html")
+
+            NewElement("SQL", 
+            "June, 2021",
+            "assets/images/previews/sql-winter-forest.png",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `When developing a website one day, I needed for user's to be able to sign in. I used SQL to make my user login database. This is the only instance of me using SQL, however.`,
+            "projects.html")
+
+            NewElement("TypeScript", 
+            "August, 2021",
+            "assets/images/previews/typescript-plains.jpg",
+            [
+                ["assets/images/stickers/tools.png", "projects.html"],
+            ],
+            `Learning TypeScript has been my most recent educational endeavor. Overall, it didn't really catch my interest as it was merely JavaScript with strict typing (just do it at home!)`,
+            "projects.html")
+        }
+    
+        window.onload = CreateElements
+    </script>
+</head>
+<body id="file-body">
+    <a href="index.html">
+        <img id="home-button" src="assets/images/buttons/HomeButton.png">
+    </a>
+
+    <div id="element-grid"></div>
+</body>
+</html>

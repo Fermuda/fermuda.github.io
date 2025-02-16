@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fermuda's projects</title>
+    <link rel="stylesheet" href="standard.css">
+    <link rel="stylesheet" href="assets/sheets/projects.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" sizes="25x25" href="assets/images/favicon.png">
+    <script>
+        function NewElement(Title, Timeline, Image, Stickers, Description, SampleLink){
+            /* FOR STICKERS: FIRST VALUE IS IMAGE LINK AND SECOND VALUE IS WEBSITE LINK. */
+            var SampleDiv = document.createElement("div")
+            var ElementDiv = document.createElement("div")
+            var StickerDiv = document.createElement("div")
+            var DividerDiv1 = document.createElement("div")
+            var DividerDiv2 = document.createElement("div")
+    
+            var TitleP = document.createElement("p")
+            var SampleP = document.createElement("p")
+            var TimelineP = document.createElement("p")
+            var DescriptionP = document.createElement("p")
+    
+            var SampleA = document.createElement("a")
+            var NewImg = document.createElement("img")
+
+            NewImg.classList.add("element-image")
+            NewImg.src = Image
+    
+            StickerDiv.classList.add("stickers")
+            ElementDiv.classList.add("element-template")
+            DividerDiv1.classList.add("element-divider")
+            DividerDiv2.classList.add("element-divider")
+    
+            DividerDiv1.style = "transform: translate(5%, -40px);"
+            DividerDiv2.style = "transform: translate(5%, 65px);"
+    
+            TitleP.classList.add("element-title")
+            TimelineP.classList.add("element-timeline")
+            DescriptionP.classList.add("element-description")
+    
+            TitleP.innerHTML = Title
+            TimelineP.innerHTML = Timeline
+            DescriptionP.innerHTML = Description
+    
+            SampleDiv.classList.add("sample-button")
+            SampleDiv.style = "background-color: greenyellow"
+    
+            SampleP.classList.add("sample-button-text")
+            SampleP.textContent = "MY WORK"
+            SampleP.style = "transform: translate(0, 20%)"
+
+            for (let Sticker of Stickers) {
+                var StickerA = document.createElement("a")
+                var StickerImg = document.createElement("img")
+                StickerImg.classList.add("sticker-button")
+                StickerImg.src = Sticker[0]
+                StickerA.href = Sticker[1]
+                StickerDiv.appendChild(StickerA)
+                StickerA.appendChild(StickerImg)
+            }
+    
+            ElementDiv.appendChild(NewImg)
+            ElementDiv.appendChild(TitleP)
+            ElementDiv.appendChild(DividerDiv1)
+            ElementDiv.appendChild(DividerDiv2)
+            ElementDiv.appendChild(TimelineP)
+            ElementDiv.appendChild(DescriptionP)
+            ElementDiv.appendChild(StickerDiv)
+            ElementDiv.appendChild(SampleA)
+            SampleA.appendChild(SampleDiv)
+            SampleDiv.appendChild(SampleP)
+
+            ElementDiv.addEventListener("mouseover", function(){
+                NewImg.style = "width: 110%;"
+            })
+
+            ElementDiv.addEventListener("mouseout", function(){
+                NewImg.style = "width: 100%;"
+            })
+
+            SampleA.href = SampleLink
+
+            document.getElementById("file-body").querySelector("#element-grid").appendChild(ElementDiv)
+        }
+    
+        function CreateElements(){
+            /* TO PREVENT THE NEW ELEMENT FUNCTION FROM BEING CALLED TOO EARLY, CALL THIS FUNCTION WHEN THE WINDOW LOADS FULLY */
+            NewElement("Vintage TDS", 
+            "February, 2024",
+            "assets/images/previews/vtds-spring-lobby.png",
+            [
+                ["assets/images/stickers/lua.png", "https://lua.org"],
+            ],
+            `<span style="color: yellow;"><i>Owner & Scripter.</i></span> An abandoned Old TDS game. In its peak, it had 300 concurrent players per update and totaled 1.1million visits. It can still be played today.`,
+            "https://www.roblox.com/games/13784773342/NO-UPDATES-Vintage-TDS")
+
+            NewElement("Tower Defense", 
+            "March, 2024",
+            "assets/images/previews/tower-defense-preview.png",
+            [
+                ["assets/images/stickers/lua.png", "https://lua.org"],
+            ],
+            `<span style="color: yellow;"><i>Owner & Scripter.</i></span> An unfinished Tower Defense game. It can be tested with the link attached to this element. Some animations may be bugged, do account for this.`,
+            "https://www.roblox.com/games/124228988996898/Tower-Defense-Tower-Management-Server")
+
+            NewElement("Combat Fusion", 
+            "August, 2024",
+            "assets/images/previews/combatfusion.png",
+            [
+                ["assets/images/stickers/lua.png", "https://lua.org"],
+            ],
+            `<span style="color: yellow;"><i>Owner & Scripter.</i></span> An abandoned combat based game. The player starts with a basic attack moveset, unlocking new movesets and abilities as they progress.`,
+            "https://www.roblox.com/games/18712452358/old-version-combat-fusion")
+
+            NewElement("Ground Zero", 
+            "October, 2024",
+            "assets/images/previews/groundzero.png",
+            [
+                ["assets/images/stickers/lua.png", "https://lua.org"],
+            ],
+            `<span style="color: yellow;"><i>Owner & Scripter.</i></span> An abandoned zombie based game. Due to its nature, it cannot be tested (requiring at least two people to start). Video footage exists within its trailer.`,
+            "https://www.youtube.com/watch?v=9GFPxeGwil0")
+
+            NewElement("Chaos Protocol", 
+            "December, 2024",
+            "assets/images/placeholder.png",
+            [
+                ["assets/images/stickers/lua.png", "https://lua.org"],
+            ],
+            `<span style="color: yellow;"><i>Owner & Scripter.</i></span> An unfinished FPS shooter game. It can be tested with the link attached to this element. It's presented with a very simple gun system.`,
+            "https://www.roblox.com/games/77055080703141/bitflip99s-Place")
+        }
+       
+        window.onload = CreateElements
+    </script>
+</head>
+<body id="file-body">
+    <a href="index.html">
+        <img id="home-button" src="assets/images/buttons/HomeButton.png">
+    </a>
+
+    <div id="element-grid"></div>
+</body>
+</html>

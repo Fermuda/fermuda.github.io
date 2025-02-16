@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fermuda's library</title>
+    <link rel="stylesheet" href="standard.css">
+    <link rel="stylesheet" href="assets/sheets/projects.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" sizes="25x25" href="assets/images/favicon.png">
+    <script>
+        function NewElement(Title, Timeline, Image, Stickers, Description, SampleLink){
+            /* FOR STICKERS: FIRST VALUE IS IMAGE LINK AND SECOND VALUE IS WEBSITE LINK. */
+            var SampleDiv = document.createElement("div")
+            var ElementDiv = document.createElement("div")
+            var StickerDiv = document.createElement("div")
+            var DividerDiv1 = document.createElement("div")
+            var DividerDiv2 = document.createElement("div")
+    
+            var TitleP = document.createElement("p")
+            var SampleP = document.createElement("p")
+            var TimelineP = document.createElement("p")
+            var DescriptionP = document.createElement("p")
+    
+            var SampleA = document.createElement("a")
+            var NewImg = document.createElement("img")
+
+            NewImg.classList.add("element-image")
+            NewImg.src = Image
+    
+            StickerDiv.classList.add("stickers")
+            ElementDiv.classList.add("element-template")
+            DividerDiv1.classList.add("element-divider")
+            DividerDiv2.classList.add("element-divider")
+    
+            DividerDiv1.style = "transform: translate(5%, -40px);"
+            DividerDiv2.style = "transform: translate(5%, 65px);"
+    
+            TitleP.classList.add("element-title")
+            TimelineP.classList.add("element-timeline")
+            DescriptionP.classList.add("element-description")
+    
+            TitleP.innerHTML = Title
+            TimelineP.innerHTML = Timeline
+            DescriptionP.innerHTML = Description
+    
+            SampleDiv.classList.add("sample-button")
+            SampleDiv.style = "background-color: greenyellow"
+    
+            SampleP.classList.add("sample-button-text")
+            SampleP.textContent = "MY WORK"
+            SampleP.style = "transform: translate(0, 20%)"
+
+            for (let Sticker of Stickers) {
+                var StickerA = document.createElement("a")
+                var StickerImg = document.createElement("img")
+                StickerImg.classList.add("sticker-button")
+                StickerImg.src = Sticker[0]
+                StickerA.href = Sticker[1]
+                StickerDiv.appendChild(StickerA)
+                StickerA.appendChild(StickerImg)
+            }
+    
+            ElementDiv.appendChild(NewImg)
+            ElementDiv.appendChild(TitleP)
+            ElementDiv.appendChild(DividerDiv1)
+            ElementDiv.appendChild(DividerDiv2)
+            ElementDiv.appendChild(TimelineP)
+            ElementDiv.appendChild(DescriptionP)
+            ElementDiv.appendChild(StickerDiv)
+            ElementDiv.appendChild(SampleA)
+            SampleA.appendChild(SampleDiv)
+            SampleDiv.appendChild(SampleP)
+
+            ElementDiv.addEventListener("mouseover", function(){
+                NewImg.style = "width: 110%;"
+            })
+
+            ElementDiv.addEventListener("mouseout", function(){
+                NewImg.style = "width: 100%;"
+            })
+
+            SampleA.href = SampleLink
+
+            document.getElementById("file-body").querySelector("#element-grid").appendChild(ElementDiv)
+        }
+    
+        function CreateElements(){
+            /* TO PREVENT THE NEW ELEMENT FUNCTION FROM BEING CALLED TOO EARLY, CALL THIS FUNCTION WHEN THE WINDOW LOADS FULLY */
+            NewElement("Keys & Abilities", 
+            "October 2024",
+            "assets/images/previews/groundzero.png",
+            [
+                ["assets/images/stickers/lua.png", "https://lua.org"],
+            ],
+            `<span style="color: yellow;"><i>Owner & Scripter.</i></span> Made for Ground Zero. Showcases the Hotkey & Ability systems. Includes Mobile Support. Expect some objects to be misplaced due to it being a scrape.`,
+            "https://www.roblox.com/games/110644418207948/Ground-Zero-Enemy-Hotkeys-Demo")
+        }
+       
+        window.onload = CreateElements
+    </script>
+</head>
+<body id="file-body">
+    <a href="index.html">
+        <img id="home-button" src="assets/images/buttons/HomeButton.png">
+    </a>
+
+    <div id="element-grid"></div>
+</body>
+</html>

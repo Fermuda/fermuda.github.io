@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+    background-image: url("assets/images/background-gradient-red.png");
+    background-attachment: fixed;
+}
+
+a{
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits color from the parent element */
+}
+
+#home-button{
+    width: 50px;
+    height: 50px;
+
+    transition: all 0.05s ease-out;
+    position: fixed;
+    z-index: 1000;
+}
+
+#home-button:hover{
+    transform: scale(1.1);
+}
+
+#home-button:active{
+    transform: scale(0.95);
+}
